@@ -1,0 +1,34 @@
+﻿@model List<MongoDbFoodMart.Dtos.DiscountDto.ResultDiscountDto>
+
+@{
+    string backColor = "";
+    int count = 0;
+}
+
+@foreach (var item in Model)
+{
+    count++;
+
+    if (count == 1)
+    {
+        backColor = "banner-ad bg-warning-subtle block-2";
+    }
+    else
+    {
+        backColor = "banner-ad bg-danger block-3";
+    }
+
+    <div class="@backColor"
+         style="background:url('@item.FeatureImageURL') no-repeat; background-position: right bottom; background-size:330px 330px">
+        <div class="row banner-content p-5">
+
+            <div class="content-wrapper col-md-7">
+                <div class="categories sale mb-3 pb-3">@item.DiscountRate % İndirimli</div>
+                <h3 class="banner-title">@item.Title</h3>
+                <a href="#" class="d-flex align-items-center nav-link">Şimdi Al! <svg width="24" height="24"><use xlink:href="#arrow-right"></use></svg></a>
+            </div>
+
+        </div>
+    </div>
+}
+

@@ -1,0 +1,38 @@
+﻿@model MongoDbFoodMart.Dtos.DepartmentDto.GetByIdDepartmentDto
+
+@{
+    ViewData["Title"] = "UpdateDepartment";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container" style="margin-top:-10px;">
+    <div class="page-inner">
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="card-header">
+                    <div class="card-title">Departman Güncelleme Sayfası</div>
+                </div>
+
+                <form method="post">
+
+                    <br />
+                    <label class="form-control">Departman Id</label>
+                    @Html.TextBoxFor(x => x.DepartmentId, new { @class = "form-control", @readonly = "readonly" })
+                    <br />
+                    <label class="form-control">Departman Adı</label>
+                    @Html.TextBoxFor(x => x.DepartmentName, new { @class = "form-control" })
+                    <br />
+                    <button class="btn btn-outline-warning">Güncelle</button>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

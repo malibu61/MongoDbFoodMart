@@ -1,0 +1,46 @@
+﻿@model MongoDbFoodMart.Dtos.ProductDto.GetByIdProductDto
+
+@{
+    ViewData["Title"] = "UpdateProduct";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container" style="margin-top:-10px;">
+    <div class="page-inner">
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="card-header">
+                    <div class="card-title">Ürün Güncelleme Sayfası</div>
+                </div>
+
+                <form method="post">
+
+                    <br />
+                    <label class="form-control">Ürün Id</label>
+                    @Html.TextBoxFor(x => x.ProductId, new { @class = "form-control", @readonly = "readonly" })
+                    <br />
+                    <label class="form-control">Ürün Adı</label>
+                    @Html.TextBoxFor(x => x.ProductName, new { @class = "form-control" })
+                    <br />
+                    <label class="form-control">Resim Yolu Adı</label>
+                    @Html.TextBoxFor(x => x.ProductImageURL, new { @class = "form-control" })
+                    <br />
+                    <label class="form-control">Fiyatı</label>
+                    @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+                    <br /> 
+                    <label class="form-control">Kategorisi</label>
+                    @Html.TextBoxFor(x => x.CategoryId, new { @class = "form-control" })
+                    <br />
+                    <button class="btn btn-outline-warning">Güncelle</button>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,45 @@
+﻿@model MongoDbFoodMart.Dtos.CustomerDto.CreateCustomerDto
+
+@{
+    ViewData["Title"] = "CreateCustomer";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>CreateCustomer</h1>
+
+<div class="container" style="margin-top:-10px;">
+    <div class="page-inner">
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="card-header">
+                    <div class="card-title">Müşteri Ekleme Sayfası</div>
+                </div>
+
+
+                <form method="post">
+
+                    <br />
+                    <label class="form-control">Müşteri Adı</label>
+                    @Html.TextBoxFor(x => x.CustomerName, new { @class = "form-control" })
+                    <br />
+                    <label class="form-control">Müşteri Soyadı</label>
+                    @Html.TextBoxFor(x => x.CustomerSurname, new { @class = "form-control" })
+                    <br />
+                    <label class="form-control">Departman Id</label>
+                    @Html.TextBoxFor(x => x.DepartmentId, new { @class = "form-control" })
+                    <br />
+
+                    <button class="btn btn-outline-warning">Güncelle</button>
+
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
