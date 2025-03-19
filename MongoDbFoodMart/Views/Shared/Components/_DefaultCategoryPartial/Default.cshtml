@@ -1,8 +1,7 @@
 ﻿@model List<MongoDbFoodMart.Dtos.CategoryDto.ResultCategoryDto>
 
 @{
-    string categorId1 = "";
-    string categorId2 = "";
+    string number = "";
     int count = 0;
 }
 
@@ -34,12 +33,20 @@
                         @foreach (var item in Model)
                         {
 
-                            <a href="/ViewComponents/_DefaultProductPartial/@item.CategoryId" class="nav-link category-item swiper-slide">
+                            count++;
+                            number = "_DefaultProductPartial" + count;
+
+
+                            <a href="/_DefaultProductPartial/Default/#_DefaultProductPartial" class="nav-link category-item swiper-slide">
                                 <img src="@item.CategoryImageURL" alt="Category Thumbnail">
                                 <h3 class="category-title">@item.CategoryName</h3>
                             </a>
 
+
+
+
                         }
+
 
                     </div>
                 </div>
@@ -48,10 +55,3 @@
         </div>
     </div>
 </section>
-
-@* 
-
-
-<div id="#goToProductsByCategoryId">
-    @await Component.InvokeAsync("_DefaultProductPartial", new { id = "67bf680bf164ef0ac0d9b3b1" })
-</div> *@

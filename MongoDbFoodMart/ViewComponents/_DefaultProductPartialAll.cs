@@ -3,18 +3,18 @@ using MongoDbFoodMart.Services.Product;
 
 namespace MongoDbFoodMart.ViewComponents
 {
-    public class _DefaultProductPartial : ViewComponent
+    public class _DefaultProductPartialAll : ViewComponent
     {
         private readonly IProductService _productService;
 
-        public _DefaultProductPartial(IProductService productService)
+        public _DefaultProductPartialAll(IProductService productService)
         {
             _productService = productService;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync(string id= "67bf6803f164ef0ac0d9b3b0")
+        public async Task<IViewComponentResult> InvokeAsync()
         {
-            var values = await _productService.GetProductsByCategoryIdAsync(id);
+            var values = await _productService.GetAllProductAsync();
             return View(values);
         }
     }
