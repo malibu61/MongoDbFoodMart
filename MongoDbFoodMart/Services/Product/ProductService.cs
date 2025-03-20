@@ -65,7 +65,9 @@ namespace MongoDbFoodMart.Services.Product
                 Price = x.Price,
                 CategoryId = x.CategoryId,
                 CategoryName = x.CategoryName,
-                ProductImageURL = x.ProductImageURL
+                ProductImageURL = x.ProductImageURL,
+                ProductRate = x.ProductRate,
+                ProductUnit = x.ProductUnit
 
             }).ToList();
 

@@ -8,7 +8,7 @@
 
                 <div class="bootstrap-tabs product-tabs">
                     <div class="tabs-header d-flex justify-content-between border-bottom my-5">
-                        <h3>Trending Products</h3>
+                        <h3>Ürünlerimiz </h3>
                         <nav>
                             <div class="nav nav-tabs" id="nav-tab" role="tablist">
 
@@ -38,13 +38,16 @@
                         @await Component.InvokeAsync("_DefaultProductPartialMilkProducts")
 
 
+                        @await Component.InvokeAsync("_DefaultProductPartialDrinks")
 
 
+                        @await Component.InvokeAsync("_DefaultProductPartialSnacks")
 
 
+                        @await Component.InvokeAsync("_DefaultProductPartialBreakfastProducts")
 
 
-
+                        @await Component.InvokeAsync("_DefaultProductPartialMeatProducts")
 
 
 

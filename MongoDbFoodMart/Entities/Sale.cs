@@ -10,7 +10,6 @@ namespace MongoDbFoodMart.Entities
         [BsonRepresentation(BsonType.ObjectId)]
         public string SaleId { get; set; }
         public int CountOfProducts { get; set; }
-        public decimal TotalPrice { get; set; }
 
         [BsonRepresentation(BsonType.ObjectId)]
         public string ProductId { get; set; }

@@ -1,0 +1,43 @@
+﻿@model MongoDbFoodMart.Dtos.SaleDto.GetByIdSaleDto
+
+@{
+    ViewData["Title"] = "UpdateSale";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container" style="margin-top:-10px;">
+    <div class="page-inner">
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="card-header">
+                    <div class="card-title">Ürün Güncelleme Sayfası</div>
+                </div>
+
+                <form method="post">
+
+                    <br />
+                    <label class="form-control">Ürün Id</label>
+                    @Html.TextBoxFor(x => x.SaleId, new { @class = "form-control", @readonly = "readonly" })
+                    <br />
+                    <br />
+                    <label class="form-control">Satılan Ürün Sayısı</label>
+                    @Html.TextBoxFor(x => x.CountOfProducts, new { @class = "form-control" })
+                    <br />
+                    <label class="form-control">Ürün Id</label>
+                    @Html.TextBoxFor(x => x.ProductId, new { @class = "form-control" })
+                    <br />
+
+                    <button class="btn btn-outline-warning">Güncelle</button>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

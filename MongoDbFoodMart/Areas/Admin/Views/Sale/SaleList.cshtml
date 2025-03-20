@@ -1,0 +1,53 @@
+﻿@model List<MongoDbFoodMart.Dtos.SaleDto.ResultSaleDto>
+
+@{
+    ViewData["Title"] = "SaleList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+
+<div class="container" style="margin-top:-10px;">
+    <div class="page-inner">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Ürünler</div>
+                    </div>
+
+                    <table class="table table-hover">
+
+                        <tr>
+                            <th>#</th>
+                            <th>Id</th>
+                            <th>Ürün Adı</th>
+                            <th>Fiyatı</th>
+                            <th>Ne Kadar Satıldı</th>
+                            <th>Kategori Ad</th>
+                            <th>Güncelle</th>
+                            <th>Sil</th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            count++;
+                            <tr>
+                                <td>@count</td>
+                                <td>@item.SaleId</td>
+                                <td>@item.ProductName</td>
+                                <td>@item.Price ₺</td>
+                                <td>@item.CountOfProducts @item.ProductUnit</td>
+                                <td>@item.CategoryName</td>
+                                <td><a href="/Admin/Sale/UpdateSale/@item.SaleId" class="btn btn-success">Güncelle</a></td>
+                                <td><a href="/Admin/Sale/DeleteSale/@item.SaleId" class="btn btn-danger">Sil</a></td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+                <a href="/Admin/Sale/CreateSale" class="btn btn-info">Yeni Ürün Girişi</a>
+            </div>
+        </div>
+    </div>
+</div>

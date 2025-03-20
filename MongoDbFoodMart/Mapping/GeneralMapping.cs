@@ -18,7 +18,7 @@ namespace MongoDbFoodMart.Mapping
             CreateMap<Category, UpdateCategoryDto>().ReverseMap();
             CreateMap<Category, ResultCategoryDto>().ReverseMap();
             CreateMap<Category, GetByIdCategoryDto>().ReverseMap();
-  
+
 
 
 
@@ -67,6 +67,15 @@ namespace MongoDbFoodMart.Mapping
             CreateMap<Sale, UpdateSaleDto>().ReverseMap();
             CreateMap<Sale, ResultSaleDto>().ReverseMap();
             CreateMap<Sale, GetByIdSaleDto>().ReverseMap();
+
+            CreateMap<Sale, ResultSaleDto>()
+                    .ForMember(x => x.ProductUnit, y => y.MapFrom(z => z.Product.ProductUnit))
+                    .ForMember(x => x.ProductName, y => y.MapFrom(z => z.Product.ProductName))
+                    .ForMember(x => x.Price, y => y.MapFrom(z => z.Product.Price))
+                    .ForMember(x => x.ProductImageURL, y => y.MapFrom(z => z.Product.ProductImageURL))
+                    .ForMember(x => x.CategoryId, y => y.MapFrom(z => z.Product.Category.CategoryId))
+                    .ForMember(x => x.CategoryName, y => y.MapFrom(z => z.Product.Category.CategoryName));
+
         }
     }
 }

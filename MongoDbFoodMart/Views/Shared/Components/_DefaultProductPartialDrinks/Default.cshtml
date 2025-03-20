@@ -4,7 +4,7 @@
     Random random3 = new Random();
 }
 
-<div class="tab-pane fade" id="nav-MilkProducts" role="tabpanel" aria-labelledby="nav-All-tab">
+<div class="tab-pane fade" id="nav-Drinks" role="tabpanel" aria-labelledby="nav-All-tab">
 
 
 
@@ -16,10 +16,9 @@
         @foreach (var item in Model)
         {
 
-            var discount = random3.Next(2, 9) * 5; // 10, 15, 20, 25, 30, 35, 40
+            int discount = random3.Next(2, 9) * 5;
 
             var priceWithoutDiscount = (double.Parse(item.Price.ToString())) / (1 - (discount / 100.0));
-
 
             <div class="col">
                 <div class="product-item">
@@ -35,13 +34,14 @@
                     <h3>@item.ProductName</h3>
                     <span class="qty">1 @item.ProductUnit</span><span class="rating"><svg width="24" height="24" class="text-primary"><use xlink:href="#star-solid"></use></svg> @item.ProductRate</span>
 
-
                     <span class="price">
                         <span style="color: red; font-size: 0.8em; text-decoration: line-through;">
                             @priceWithoutDiscount.ToString("F2") ₺
                         </span>
                         @item.Price ₺
                     </span>
+
+
                     <div class="d-flex align-items-center justify-content-between">
                         <div class="input-group product-qty">
                             <span class="input-group-btn">

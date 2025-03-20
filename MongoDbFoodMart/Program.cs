@@ -5,6 +5,7 @@ using MongoDbFoodMart.Services.Department;
 using MongoDbFoodMart.Services.Discount;
 using MongoDbFoodMart.Services.Feature;
 using MongoDbFoodMart.Services.Product;
+using MongoDbFoodMart.Services.Sale;
 using MongoDbFoodMart.Settings;
 using System.Reflection;
 
@@ -23,6 +24,7 @@ builder.Services.AddScoped<IDepartmentService, DepartmentService>();
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<IFeatureService, FeatureService>();
 builder.Services.AddScoped<IDiscountService, DiscountService>();
+builder.Services.AddScoped<ISaleService, SaleService>();
 
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 

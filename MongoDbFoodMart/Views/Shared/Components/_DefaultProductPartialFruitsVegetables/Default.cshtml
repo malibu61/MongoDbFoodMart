@@ -19,6 +19,8 @@
 
             var discount = random2.Next(2, 9) * 5; // 10, 15, 20, 25, 30, 35, 40
 
+            var priceWithoutDiscount = (double.Parse(item.Price.ToString())) / (1 - (discount / 100.0));
+
 
             <div class="col">
                 <div class="product-item">
@@ -32,8 +34,15 @@
                         </a>
                     </figure>
                     <h3>@item.ProductName</h3>
-                    <span class="qty">1 Unit</span><span class="rating"><svg width="24" height="24" class="text-primary"><use xlink:href="#star-solid"></use></svg> 4.5</span>
-                    <span class="price">@item.Price ₺</span>
+                    <span class="qty">1 @item.ProductUnit</span><span class="rating"><svg width="24" height="24" class="text-primary"><use xlink:href="#star-solid"></use></svg> @item.ProductRate</span>
+
+
+                    <span class="price">
+                        <span style="color: red; font-size: 0.8em; text-decoration: line-through;">
+                            @priceWithoutDiscount.ToString("F2") ₺
+                        </span>
+                        @item.Price ₺
+                    </span>
                     <div class="d-flex align-items-center justify-content-between">
                         <div class="input-group product-qty">
                             <span class="input-group-btn">
