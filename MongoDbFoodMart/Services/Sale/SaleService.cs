@@ -38,10 +38,6 @@ namespace MongoDbFoodMart.Services.Sale
 
         public async Task<List<ResultSaleDto>> GetAllSaleAsync()
         {
-
-
-
-
             var values = await _saleCollection.Find(x => true).ToListAsync();
 
             foreach (var item in values)
@@ -57,6 +53,28 @@ namespace MongoDbFoodMart.Services.Sale
         {
             var values = await _saleCollection.Find(x => x.SaleId == id).FirstOrDefaultAsync();
             return _mapper.Map<GetByIdSaleDto>(values);
+
+        }
+
+        public async Task<List<ResultSaleDto>> Last6SaleAsync()
+        {
+
+            var values = await _saleCollection.Find(x => true).ToListAsync();
+
+            foreach (var item in values)
+            {
+                item.Product = await _productCollection.Find<MongoDbFoodMart.Entities.Product>(x => x.ProductId == item.ProductId).FirstAsync();
+                item.Product.Category = await _categoryCollection.Find<MongoDbFoodMart.Entities.Category>(x => x.CategoryId == item.Product.CategoryId).FirstAsync();
+            }
+
+            return _mapper.Map<List<ResultSaleDto>>(values.OrderByDescending(x=>x.CountOfProducts).Take(6));
+
+            //var values = await _saleCollection.Find(x => true)
+            //   .SortByDescending(x => x.CountOfProducts) // syılarına göre sıralar
+            //   .Limit(6)//6 tanesini alır
+            //   .ToListAsync();
+
+            //return _mapper.Map<List<ResultSaleDto>>(values);
 
         }
 

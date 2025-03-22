@@ -30,6 +30,13 @@ namespace MongoDbFoodMart.Services.Feature
             await _featureCollection.DeleteOneAsync(x => x.FeatureId == id);
         }
 
+        public async Task<List<ResultFeatureDto>> Get2FeatureAsync()
+        {
+            var values = await _featureCollection.Find(x => true).ToListAsync();
+            values = values.OrderBy(x => x.FeatureId).Take(2).ToList();
+            return _mapper.Map<List<ResultFeatureDto>>(values);
+        }
+
         public async Task<List<ResultFeatureDto>> GetAllFeatureAsync()
         {
             var values = await _featureCollection.Find(x => true).ToListAsync();

@@ -8,6 +8,7 @@ namespace MongoDbFoodMart.Services.Feature
         Task CreateFeatureAsync(CreateFeatureDto createFeatureDto);
         Task UpdateFeatureDto(UpdateFeatureDto updateFeatureDto);
         Task DeleteFeatureAsync(string id);
+        Task<List<ResultFeatureDto>> Get2FeatureAsync();
         Task<GetByIdFeatureDto> GetByIdFeatureAsync(string id);
     }
 }
